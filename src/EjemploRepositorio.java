@@ -93,10 +93,12 @@ public class EjemploRepositorio {
             System.out.println("=============TOTAL DE REGISTROS=============");
             System.out.println(repo.total());
 
-            // AccesoDatoException clase padre debe ir primero
-        } catch (AccesoDatoException e) {
-            System.out.println("Error: "+e.getMessage());
+        } catch (LeccturaAccesoDatoException e) {
+            System.out.println("Error: " + e.getMessage());
             e.printStackTrace();
+        } catch (AccesoDatoException ex) {
+            System.out.println("Error: " + ex.getMessage());
+            ex.printStackTrace();
         }
     }
 }
