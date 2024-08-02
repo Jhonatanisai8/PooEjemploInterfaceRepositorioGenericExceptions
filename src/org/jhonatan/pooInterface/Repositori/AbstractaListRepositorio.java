@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jhonatan.pooInterface.Modelo.BaseEntity;
+import org.jhonatan.pooInterface.Repositori.Lista.RegistroDuplicadoAccesoDatoExcepion;
 import org.jhonatan.pooInterface.Repositori.exceptions.EscrituraAccesoDatoException;
 import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoException;
 
@@ -50,7 +51,7 @@ public abstract class AbstractaListRepositorio<T extends BaseEntity> implements 
         }
 
         if (this.dataSource.contains(t)) {
-            throw new EscrituraAccesoDatoException(
+            throw new RegistroDuplicadoAccesoDatoExcepion(
                     "Error, el objeto con id " + t.getId() + " ya existe en el repositorio");
         }
         this.dataSource.add(t);
