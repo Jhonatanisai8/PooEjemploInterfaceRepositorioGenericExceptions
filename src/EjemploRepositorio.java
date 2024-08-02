@@ -5,6 +5,7 @@ import org.jhonatan.pooInterface.Repositori.Direccion;
 import org.jhonatan.pooInterface.Repositori.OrdenablePaginableCrud;
 import org.jhonatan.pooInterface.Repositori.Lista.ClienteListRepositorio;
 import org.jhonatan.pooInterface.Repositori.exceptions.AccesoDatoException;
+import org.jhonatan.pooInterface.Repositori.exceptions.EscrituraAccesoDatoException;
 import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoException;
 
 public class EjemploRepositorio {
@@ -30,6 +31,9 @@ public class EjemploRepositorio {
             repo.crear(new Cliente("Antonio", "Sanchez"));
             repo.crear(new Cliente("Martha", "Gomez"));
             repo.crear(new Cliente("David", "Diaz"));
+
+            repo.crear(null);
+
             System.out.println();
 
             /* Listamos */
@@ -69,21 +73,17 @@ public class EjemploRepositorio {
 
             System.out.println();
             System.out.println("=============BUSCANDO UN REGISTRO=============\n");
-            int id = 12;
+            int id = 34;
             System.out.println("Buscando el cliente con id: " + id);
             Cliente cienteBuscar = repo.porId(id);
-            if (cienteBuscar != null) {
-                System.out.println(cienteBuscar);
-            } else {
-                System.out.println("Registro con id no encontrado.");
-            }
+            System.out.println(cienteBuscar);
             System.out.println();
 
             /* Eliminando */
             System.out.println("=============ELIMINAR=============");
-            int idEliminar = 0;
-            System.out.println("Eliminando el cliente con id: " + idEliminar);
+            int idEliminar = 2;
             repo.eliminar(idEliminar);
+            System.out.println("Eliminando el cliente con id: " + idEliminar);
             System.out.println();
 
             System.out.println("============= LISTANDO =============\n");
@@ -94,11 +94,14 @@ public class EjemploRepositorio {
             System.out.println(repo.total());
 
         } catch (LeccturaAccesoDatoException e) {
-            System.out.println("Error: " + e.getMessage());
+            System.out.println("Error  de lectura: " + e.getMessage());
             e.printStackTrace();
-        } catch (AccesoDatoException ex) {
-            System.out.println("Error: " + ex.getMessage());
+        } catch (EscrituraAccesoDatoException ex) {
+            System.out.println("Error de generica: " + ex.getMessage());
             ex.printStackTrace();
+        } catch (AccesoDatoException ex1) {
+            System.out.println("Error de generica: " + ex1.getMessage());
+            ex1.printStackTrace();
         }
     }
 }
