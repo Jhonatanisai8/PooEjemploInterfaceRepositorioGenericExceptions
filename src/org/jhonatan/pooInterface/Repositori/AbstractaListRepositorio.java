@@ -23,7 +23,7 @@ public abstract class AbstractaListRepositorio<T extends BaseEntity> implements 
     @Override
     public T porId(Integer id) throws LeccturaAccesoDatoException {
 
-        if (id == null || id < 0) {
+        if (id == null || id <= 0) {
             // llamamos a la exception
             throw new LeccturaAccesoDatoException("Id invalido debe ser mayor que 0");
         }
