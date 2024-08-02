@@ -4,6 +4,7 @@ import org.jhonatan.pooInterface.Modelo.Cliente;
 import org.jhonatan.pooInterface.Repositori.Direccion;
 import org.jhonatan.pooInterface.Repositori.OrdenablePaginableCrud;
 import org.jhonatan.pooInterface.Repositori.Lista.ClienteListRepositorio;
+import org.jhonatan.pooInterface.Repositori.Lista.RegistroDuplicadoAccesoDatoExcepion;
 import org.jhonatan.pooInterface.Repositori.exceptions.AccesoDatoException;
 import org.jhonatan.pooInterface.Repositori.exceptions.EscrituraAccesoDatoException;
 import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoException;
@@ -94,6 +95,9 @@ public class EjemploRepositorio {
             System.out.println("=============TOTAL DE REGISTROS=============");
             System.out.println(repo.total());
 
+        } catch (RegistroDuplicadoAccesoDatoExcepion ex2) {
+            System.out.println("Error de generica: " + ex2.getMessage());
+            ex2.printStackTrace();
         } catch (LeccturaAccesoDatoException e) {
             System.out.println("Error  de lectura: " + e.getMessage());
             e.printStackTrace();
