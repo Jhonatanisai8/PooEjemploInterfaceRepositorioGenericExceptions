@@ -6,11 +6,12 @@ import java.util.List;
 import org.jhonatan.pooInterface.Modelo.Cliente;
 import org.jhonatan.pooInterface.Repositori.AbstractaListRepositorio;
 import org.jhonatan.pooInterface.Repositori.Direccion;
+import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoException;
 
 public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente> {
 
     @Override
-    public void editar(Cliente cliente) {
+    public void editar(Cliente cliente) throws LeccturaAccesoDatoException {
         Cliente c = this.porId(cliente.getId());
         c.setNombre(cliente.getNombre());
         c.setApellido(cliente.getApellido());

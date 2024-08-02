@@ -6,12 +6,13 @@ import java.util.List;
 import org.jhonatan.pooInterface.Modelo.Producto;
 import org.jhonatan.pooInterface.Repositori.AbstractaListRepositorio;
 import org.jhonatan.pooInterface.Repositori.Direccion;
+import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoException;
 
 public class ProductoListRepositorio extends AbstractaListRepositorio<Producto> {
 
     @Override
     public List<Producto> listar(String campo, Direccion direccion) {
-           List<Producto> listOOrdenada = new ArrayList<>(this.dataSource);
+        List<Producto> listOOrdenada = new ArrayList<>(this.dataSource);
         listOOrdenada.sort((a, b) -> {
             int result = 0;
             if (direccion == Direccion.ASC) {
@@ -26,13 +27,13 @@ public class ProductoListRepositorio extends AbstractaListRepositorio<Producto> 
     }
 
     @Override
-    public void editar(Producto p) {
+    public void editar(Producto p) throws LeccturaAccesoDatoException {
         Producto prod = porId(p.getId());
         prod.setDescripcion(p.getDescripcion());
         prod.setPrecio(p.getPrecio());
     }
 
-     static int ordenar(String campo, Producto a, Producto b) {
+    static int ordenar(String campo, Producto a, Producto b) {
 
         int result = 0;
         switch (campo) {
