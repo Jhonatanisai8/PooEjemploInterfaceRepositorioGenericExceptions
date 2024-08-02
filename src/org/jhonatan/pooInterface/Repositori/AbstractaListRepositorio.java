@@ -43,7 +43,7 @@ public abstract class AbstractaListRepositorio<T extends BaseEntity> implements 
     }
 
     @Override
-    public void eliminar(Integer id) {
+    public void eliminar(Integer id) throws LeccturaAccesoDatoException {
         // Cliente c = ;this.porId(id)
         this.dataSource.remove(this.porId(id));
     }

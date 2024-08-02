@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.jhonatan.pooInterface.Repositori.exceptions.AccesoDatoException;
 
-
 // clase generica <T>
 public interface CrudRepositorio<T> {
     List<T> listar();
@@ -15,6 +14,6 @@ public interface CrudRepositorio<T> {
 
     void editar(T t);
 
-    void eliminar(Integer id);
+    void eliminar(Integer id) throws AccesoDatoException;
 
 }
