@@ -30,9 +30,10 @@ public class EjemploRepositorio {
             repo.crear(new Cliente("Laura", "Gonzales"));
             repo.crear(new Cliente("Antonio", "Sanchez"));
             repo.crear(new Cliente("Martha", "Gomez"));
-            repo.crear(new Cliente("David", "Diaz"));
-
-            repo.crear(null);
+            Cliente clienteDavid = new Cliente("David", "Diaz");
+            // repo.crear(null);
+            repo.crear(clienteDavid);
+            repo.crear(clienteDavid);
 
             System.out.println();
 
