@@ -34,6 +34,9 @@ public abstract class AbstractaListRepositorio<T extends BaseEntity> implements 
                 break;
             }
         }
+        if (c == null) {
+            throw new LeccturaAccesoDatoException("No exite el registro con el id " + id);
+        }
         return c;
     }
 
