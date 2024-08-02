@@ -11,7 +11,7 @@ import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoExcepti
 public class ClienteListRepositorio extends AbstractaListRepositorio<Cliente> {
 
     @Override
-    public void editar(Cliente cliente) throws LeccturaAccesoDatoException {
+    public void editar(Cliente cliente) throws LeccturaAccesoDatoException{
         Cliente c = this.porId(cliente.getId());
         c.setNombre(cliente.getNombre());
         c.setApellido(cliente.getApellido());

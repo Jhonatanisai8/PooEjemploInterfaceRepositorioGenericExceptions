@@ -3,8 +3,6 @@ package org.jhonatan.pooInterface.Repositori;
 import java.util.List;
 
 import org.jhonatan.pooInterface.Repositori.exceptions.AccesoDatoException;
-import org.jhonatan.pooInterface.Repositori.exceptions.EscrituraAccesoDatoException;
-import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoException;
 
 // clase generica <T>
 public interface CrudRepositorio<T> {
@@ -12,9 +10,9 @@ public interface CrudRepositorio<T> {
 
     T porId(Integer id) throws AccesoDatoException;
 
-    void crear(T t) throws EscrituraAccesoDatoException;
+    void crear(T t) throws AccesoDatoException;
 
-    void editar(T t) throws LeccturaAccesoDatoException;
+    void editar(T t) throws AccesoDatoException;
 
     void eliminar(Integer id) throws AccesoDatoException;
 
