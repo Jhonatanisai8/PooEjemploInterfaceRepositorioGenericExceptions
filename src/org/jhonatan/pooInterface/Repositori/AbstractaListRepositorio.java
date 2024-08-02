@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jhonatan.pooInterface.Modelo.BaseEntity;
+import org.jhonatan.pooInterface.Repositori.exceptions.EscrituraAccesoDatoException;
 import org.jhonatan.pooInterface.Repositori.exceptions.LeccturaAccesoDatoException;
 
 public abstract class AbstractaListRepositorio<T extends BaseEntity> implements OrdenablePaginableCrud<T> {
@@ -41,7 +42,12 @@ public abstract class AbstractaListRepositorio<T extends BaseEntity> implements 
     }
 
     @Override
-    public void crear(T t) {
+    public void crear(T t) throws EscrituraAccesoDatoException {
+
+        // si el registro es nulo
+        if (t == null) {
+            throw new EscrituraAccesoDatoException("error al insertar un objeto de tipo null.");
+        }
         this.dataSource.add(t);
     }
 
